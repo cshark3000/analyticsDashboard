@@ -1,0 +1,45 @@
+@use "variables" as *;
+
+html {
+  scrollbar-width: none;
+}
+body {
+  font-family: $font-sans;
+  color: $text-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $bg-void;
+  overflow: auto;
+  outline: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome and Safari */
+}
+::-webkit-scrollbar {
+  display: none;
+}
+:root {
+  font-size: $font-size-for-rem;
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
+  font-size: 18rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
