@@ -1,0 +1,33 @@
+@use "../../variables" as *;
+
+.ranges {
+  display: flex;
+  background: $bg-void;
+  border: 1px solid $border-soft;
+  border-radius: $radius-md;
+  padding: 3px;
+  gap: 2px;
+
+  .range {
+    all: unset;
+    font-size: 12px;
+    font-weight: 500;
+    color: $text-muted;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s $ease-out;
+
+    &:hover {
+      color: $text-secondary;
+      background: $bg-surface;
+    }
+
+    &.active {
+      background: $bg-surface;
+      color: $text-primary;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+  }
+}
