@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useMemo } from "react";
-import cx from "classnames";
+import React, { useState, useEffect } from "react";
 import type { Section } from "../../types";
-import { SECTION, RANGES } from "../../constants";
+import { SECTION } from "../../constants";
 import styles from "./index.module.scss";
 import { RangeChanger } from "../RangeChanger/RangeChanger";
 
