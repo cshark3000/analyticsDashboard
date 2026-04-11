@@ -1,0 +1,43 @@
+@use "../../../variables" as *;
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    $border-subtle 25%,
+    $border-soft 50%,
+    $border-subtle 75%
+  );
+  background-size: 400px 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: $radius-sm;
+
+  &.xs {
+    height: 10px;
+    width: 48px;
+  }
+  &.sm {
+    height: 12px;
+    width: 80px;
+  }
+  &.lg {
+    height: 26px;
+    width: 110px;
+  }
+  &.line {
+    height: 2px;
+    width: 100%;
+  }
+}
+
+.skeletonCard {
+  background: $bg-card;
+  border: 1px solid $border-soft;
+  border-radius: $radius-lg;
+  padding: 20px;
+
+  &.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

@@ -3,6 +3,7 @@ import styles from "./index.module.scss";
 import { Section, DateRange } from "./types";
 import { Header } from "./components/Header/Header";
 import { Sidebar } from "./components/Sidebar/Sidebar";
+import { UsersSection } from "./sections/UsersSection";
 
 const App: React.FC = () => {
   const [section, setSection] = useState<Section>("users");
@@ -17,7 +18,11 @@ const App: React.FC = () => {
           dateRange={dateRange}
           onDateRangeChange={setDateRange}
         />
-        <div className={styles.content}></div>
+        <div className={styles.content}>
+          <div className={styles.scroll}>
+            {section === "users" && <UsersSection dateRange={dateRange} />}
+          </div>
+        </div>
       </div>
     </div>
   );

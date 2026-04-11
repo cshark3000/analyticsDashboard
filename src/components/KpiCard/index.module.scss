@@ -1,0 +1,112 @@
+@use "sass:list";
+@use "../../variables" as *;
+
+.kpiCard {
+  background: $bg-card;
+  border: 1px solid $border-soft;
+  border-radius: $radius-lg;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.4s $ease-out,
+    transform 0.4s $ease-out,
+    box-shadow 0.2s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .accentBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .title {
+    font-size: 12px;
+    font-weight: 500;
+    color: $text-muted;
+    letter-spacing: 0.01em;
+  }
+
+  .badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+
+    &.up {
+      color: $status-up;
+      background: rgba(16, 185, 129, 0.1);
+    }
+    &.down {
+      color: $status-down;
+      background: rgba(244, 63, 94, 0.1);
+    }
+  }
+
+  .value {
+    font-size: 26px;
+    font-weight: 700;
+    color: $text-primary;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .meta {
+    font-size: 11px;
+    color: $text-muted;
+    margin-bottom: 14px;
+  }
+
+  .change {
+    font-weight: 600;
+    &.textUp {
+      color: $status-up;
+    }
+    &.textDown {
+      color: $status-down;
+    }
+  }
+
+  .bar {
+    height: 2px;
+    background: $border-subtle;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .barFill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s $ease-out;
+  }
+
+  @each $color, $params in $colors {
+    &.#{$color} .accentBar {
+      background: list.nth($params, 1);
+    }
+
+    &.#{$color} .barFill {
+      background: list.nth($params, 1);
+    }
+  }
+}
