@@ -1,5 +1,12 @@
 export type Section   = 'users' | 'gaming' | 'finance';
 export type DateRange = '24H' | '7D' | '30D' | '90D' | 'YTD';
+export enum Color {
+  gold = 'gold',
+teal = 'teal',
+rose = 'rose',
+violet = 'violet',
+cyan = 'cyan'
+}
 
 export interface KpiCard {
   title: string;
@@ -8,7 +15,7 @@ export interface KpiCard {
   changeLabel: string;
   prefix?: string;
   suffix?: string;
-  accent: 'gold' | 'teal' | 'rose' | 'violet';
+  accent: Color;
 }
 
 export interface UserActivity {

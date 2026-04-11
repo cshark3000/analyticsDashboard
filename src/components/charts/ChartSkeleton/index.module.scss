@@ -1,0 +1,30 @@
+@use "../../../variables" as *;
+
+.skeletonChart {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  overflow: hidden;
+
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 2px;
+
+    .bar {
+      flex: 1;
+      border-radius: 2px 2px 0 0;
+      background: linear-gradient(
+        90deg,
+        $border-subtle 25%,
+        $border-soft 50%,
+        $border-subtle 75%
+      );
+      background-size: 400px 100%;
+      animation: skeleton-shimmer 1.5s ease-in-out infinite;
+    }
+  }
+}
