@@ -1,9 +1,7 @@
-'use strict';
+import express from 'express';
+import cors from 'cors';
 
-const express = require('express');
-const cors    = require('cors');
-
-const usersRouter   = require('./routes/users');
+import usersRouter from './routes/users.js';
 
 
 const app  = express();
@@ -48,4 +46,4 @@ app.listen(PORT, () => {
   console.log(`       GET /api/users/{kpis,activity,growth,devices,geo}`);
 });
 
-module.exports = app;
+export default app;
