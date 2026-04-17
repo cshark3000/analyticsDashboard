@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { parseRange, getUserKpis, getUserActivity, getUserGrowth, getDeviceSplit, getGeoData } from './store';
+import { parseRange, getUserKpis, getUserActivity, getUserGrowth, getDeviceSplit, getGeoData } from './store.js';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
   const range = parseRange(req.query);
