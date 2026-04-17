@@ -8,7 +8,13 @@ import { Color, type DateRange } from "../types";
 
 import styles from "./index.module.scss";
 import { AreaChartComponent } from "../components/charts/AreaChartComponent";
-import { ChartCard, LegendDot } from "../components/charts/ChartPrimitives";
+import {
+  ChartCard,
+  ChartsRow,
+  LegendDot,
+} from "../components/charts/ChartPrimitives";
+import { ChartSkeleton } from "../components/charts/ChartSkeleton/ChartSkeleton";
+import { PieChartComponent } from "../components/charts/PieChartComponent";
 
 interface Props {
   dateRange: DateRange;
@@ -25,6 +31,11 @@ export const UsersSection: React.FC<Props> = ({ dateRange }) => {
             <CardSkeleton key={i} />
           ))}
         </div>
+        <ChartsRow layout="70-30">
+          <ChartCard>
+            <ChartSkeleton height={200} />
+          </ChartCard>
+        </ChartsRow>
       </div>
     );
   }
@@ -36,34 +47,49 @@ export const UsersSection: React.FC<Props> = ({ dateRange }) => {
           <KpiCard key={kpi.title} {...kpi} delay={i * 70} />
         ))}
       </div>
-      <ChartCard
-        title="User Growth"
-        sub="DAU vs New Registrations"
-        legend={
-          <>
-            <LegendDot color={Color.teal} label="DAU" />
-            <LegendDot
-              color={Color.violet}
-              label="New Users"
-              style={{ marginLeft: 12 }}
-            />
-          </>
-        }
-        bodyStyle={{ height: 200 }}
-      >
-        <AreaChartComponent
-          data={dash.data.growth}
-          primaryKey="value"
-          primaryName="DAU"
-          primaryColor={Color.cyan}
-          primaryGradientId="ug-dau"
-          secondaryKey="secondary"
-          secondaryName="New Users"
-          secondaryColor={Color.violet}
-          secondaryGradientId="ug-new"
-          height={200}
-        />
-      </ChartCard>
+      <ChartsRow layout="70-30">
+        <ChartCard
+          title="User Growth"
+          sub="DAU vs New Registrations"
+          legend={
+            <>
+              <LegendDot color={Color.teal} label="DAU" />
+              <LegendDot
+                color={Color.violet}
+                label="New Users"
+                style={{ marginLeft: 12 }}
+              />
+            </>
+          }
+          bodyStyle={{ height: 200 }}
+        >
+          <AreaChartComponent
+            data={dash.data.growth}
+            primaryKey="value"
+            primaryName="DAU"
+            primaryColor={Color.cyan}
+            primaryGradientId="ug-dau"
+            secondaryKey="secondary"
+            secondaryName="New Users"
+            secondaryColor={Color.violet}
+            secondaryGradientId="ug-new"
+            height={200}
+          />
+        </ChartCard>
+
+        <ChartCard
+          title="Devices"
+          sub="Platform split"
+          bodyStyle={{
+            height: 140,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <PieChartComponent data={dash.data.devices} />
+        </ChartCard>
+      </ChartsRow>
     </div>
   );
 };

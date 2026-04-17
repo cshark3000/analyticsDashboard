@@ -42,7 +42,7 @@ export const LegendDot: React.FC<LegendDotProps> = ({
 
 // ─── ChartCard ───────────────────────────────────────────────────────────────
 interface ChartCardProps {
-  title: string;
+  title?: string;
   sub?: string;
   legend?: React.ReactNode;
   bodyStyle?: React.CSSProperties;
